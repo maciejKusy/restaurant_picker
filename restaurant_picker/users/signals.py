@@ -17,4 +17,4 @@ def save_profile(sender, instance, **kwargs):
     """
     Ensures that a profile object is saved upon the respective User model being saved.
     """
-    instance.userrestaurantstack.save()
+    instance.restaurant_stack.save()
