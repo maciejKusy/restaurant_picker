@@ -131,5 +131,5 @@ AUTH_USER_MODEL = 'users.User'
 
 # STATIC_URL = '/static/'
 
-# LOGIN_REDIRECT_URL = 'my_picks'
+LOGIN_REDIRECT_URL = 'home'
 # LOGIN_URL = 'login'
