@@ -132,4 +132,5 @@ AUTH_USER_MODEL = 'users.User'
 # STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'home'
-# LOGIN_URL = 'login'
+
+LOGIN_URL = 'login'
