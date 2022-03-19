@@ -2,4 +2,23 @@
 {% block content %}
     <p>This is the home view</p>
     <a href="{% url 'create-restaurant' %}">Create Restaurant</a>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Pick Restaurant</button>
+    </form>
+
+    {% for restaurant in restaurants %}
+        <article>
+            <div>
+                <div>
+                    <div>
+                        <a href="#">{{ restaurant.url }}</a>
+                        <small>{{ restaurant.phone_number }}</small>
+                    </div>
+                        <h2>{{ restaurant.name }}</h2>
+                        <p>{{ restaurant.notes }}</p>
+                </div>
+            </div>
+        </article>
+    {% endfor %}
 {% endblock %}
