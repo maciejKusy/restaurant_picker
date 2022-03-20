@@ -10,3 +10,6 @@ class Restaurant(models.Model):
     url = models.URLField(max_length=MAX_RESTAURANT_URL_LENGTH)
     phone_number = PhoneNumberField(blank=False)
     notes = models.TextField(max_length=MAX_RESTAURANT_NOTES_LENGTH)
+
+    def __str__(self):
+        return self.name

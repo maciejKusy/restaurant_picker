@@ -1,5 +1,4 @@
 from random import randint
-
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
@@ -26,7 +25,7 @@ def select_random_restaurant(user, restaurant_list, current_week):
     if picks_full_flag:
         return random_restaurant
     else:
-        if random_restaurant.picks.all().filter(created_at_week_num=current_week):
+        if random_restaurant.picks.all().filter(user=user, created_at_week_num=current_week):
             return select_random_restaurant(user, restaurant_list, current_week)
         else:
             return random_restaurant
@@ -45,7 +44,8 @@ def home_view(request):
         else:
             messages.info(request, f'There are no restaurants available!')
 
-    return render(request, 'home.html', {'restaurants': restaurant_list})
+    current_week_picks = UserRestaurantPick.objects.all().filter(user=request.user, created_at_week_num=current_week)
+    return render(request, 'home.html', {'restaurants': restaurant_list, 'weekly_picks': current_week_picks})
 
 
 class RestaurantCreationView(LoginRequiredMixin, CreateView):

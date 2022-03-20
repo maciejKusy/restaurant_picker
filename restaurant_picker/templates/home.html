@@ -1,24 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
-    <p>This is the home view</p>
-    <a href="{% url 'create-restaurant' %}">Create Restaurant</a>
-    <form method="POST">
-        {% csrf_token %}
-        <button type="submit">Pick Restaurant</button>
-    </form>
-
-    {% for restaurant in restaurants %}
-        <article>
-            <div>
-                <div>
-                    <div>
-                        <a href="{{ restaurant.url }}">{{ restaurant.url }}</a>
-                        <small>{{ restaurant.phone_number }}</small>
-                    </div>
-                        <h2>{{ restaurant.name }}</h2>
+    <div class="row">
+        <a class="btn btn-primary m-3" href="{% url 'create-restaurant' %}">Create Restaurant</a>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary m-3">Pick Restaurant</button>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col mt-2">
+            <p class="text-secondary">Restaurants available:</p>
+            {% for restaurant in restaurants %}
+                <article class="card mt-2">
+                    <div class="col mt-3">
+                        <a href="{{ restaurant.url }}" class="m-1">{{ restaurant.url }}</a>
+                        <p>{{ restaurant.phone_number }}</p>
+                        <h3 class="card-title">{{ restaurant.name }}</h3>
                         <p>{{ restaurant.notes }}</p>
-                </div>
-            </div>
-        </article>
-    {% endfor %}
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+        <div class="col mt-2">
+            <p class="text-secondary">Your weekly picks:</p>
+            {% for pick in weekly_picks %}
+                <article class="card mt-2">
+                    <h2 class="card-title m-2">{{ pick.restaurant }}</h2>
+                    <p class="m-2">{{ pick.user }}</p>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
