@@ -6,7 +6,7 @@ from restaurant_picker.constants import MAX_RESTAURANT_NAME_LENGTH, MAX_RESTAURA
 
 
 class Restaurant(models.Model):
-    name = models.CharField(max_length=MAX_RESTAURANT_NAME_LENGTH, null=False, blank=False)
+    name = models.CharField(max_length=MAX_RESTAURANT_NAME_LENGTH, unique=True, null=False, blank=False)
     url = models.URLField(max_length=MAX_RESTAURANT_URL_LENGTH)
     phone_number = PhoneNumberField(blank=False)
     notes = models.TextField(max_length=MAX_RESTAURANT_NOTES_LENGTH)
