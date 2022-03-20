@@ -13,9 +13,8 @@
             {% for restaurant in restaurants %}
                 <article class="card mt-2">
                     <div class="col mt-3">
-                        <a href="{{ restaurant.url }}" class="m-1">{{ restaurant.url }}</a>
+                        <a href="{{ restaurant.url }}" target="_blank"> <h3 class="card-title">{{ restaurant.name.title }}</h3></a>
                         <p>{{ restaurant.phone_number }}</p>
-                        <h3 class="card-title">{{ restaurant.name }}</h3>
                         <p>{{ restaurant.notes }}</p>
                     </div>
                 </article>
@@ -25,7 +24,7 @@
             <p class="text-secondary">Your weekly picks:</p>
             {% for pick in weekly_picks %}
                 <article class="card mt-2">
-                    <h2 class="card-title m-2">{{ pick.restaurant }}</h2>
+                    <a href="{{ pick.restaurant.url }}" target="_blank" class="m-2"> <h3 class="card-title">{{ pick.restaurant.name.title }}</h3></a>
                     <p class="m-2">{{ pick.user }}</p>
                 </article>
             {% endfor %}

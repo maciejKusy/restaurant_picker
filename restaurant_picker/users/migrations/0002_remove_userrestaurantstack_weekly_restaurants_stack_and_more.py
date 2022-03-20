@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('restaurants', '0001_initial'),
-        ('users', '0001_initial'),
+        ("restaurants", "0001_initial"),
+        ("users", "0001_initial"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='userrestaurantstack',
-            name='weekly_restaurants_stack',
+            model_name="userrestaurantstack",
+            name="weekly_restaurants_stack",
         ),
         migrations.AddField(
-            model_name='userrestaurantstack',
-            name='weekly_restaurant_picks',
-            field=models.ManyToManyField(blank=True, to='restaurants.restaurant'),
+            model_name="userrestaurantstack",
+            name="weekly_restaurant_picks",
+            field=models.ManyToManyField(blank=True, to="restaurants.restaurant"),
         ),
     ]

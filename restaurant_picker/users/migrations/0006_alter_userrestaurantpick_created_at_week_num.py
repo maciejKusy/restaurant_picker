@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('users', '0005_rename_created_at_userrestaurantpick_created_at_week_num'),
+        ("users", "0005_rename_created_at_userrestaurantpick_created_at_week_num"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='userrestaurantpick',
-            name='created_at_week_num',
+            model_name="userrestaurantpick",
+            name="created_at_week_num",
             field=models.IntegerField(default=11),
         ),
     ]

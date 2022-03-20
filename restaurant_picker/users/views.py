@@ -5,15 +5,24 @@ from users.forms import UserRegistrationForm
 
 
 class UserRegistrationView(SuccessMessageMixin, CreateView):
-    template_name = 'users/register.html'
-    success_url = '/login/'
+    """
+    Serves the purpose of registering new user accounts.
+    """
+    template_name = "users/register.html"
+    success_url = "/login/"
     form_class = UserRegistrationForm
     success_message = "Account created!"
 
 
 class UserLoginView(LoginView):
-    template_name = 'users/login.html'
+    """
+    Serves the purpose of logging into a user account.
+    """
+    template_name = "users/login.html"
 
 
 class UserLogoutView(LogoutView):
-    template_name = 'users/logout.html'
+    """
+    The basic view initiated upon logging out.
+    """
+    template_name = "users/logout.html"
