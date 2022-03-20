@@ -9,9 +9,9 @@
     </div>
     <div class="row">
         <div class="col mt-2">
-            <p class="text-secondary">Restaurants available:</p>
+            <p class="text-light">Restaurants available:</p>
             {% for restaurant in restaurants %}
-                <article class="card mt-2">
+                <article class="card mt-3 shadow p-1 rounded">
                     <div class="col mt-3">
                         <a href="{{ restaurant.url }}" target="_blank"> <h3 class="card-title">{{ restaurant.name.title }}</h3></a>
                         <p>{{ restaurant.phone_number }}</p>
@@ -21,9 +21,9 @@
             {% endfor %}
         </div>
         <div class="col mt-2">
-            <p class="text-secondary">Your weekly picks:</p>
+            <p class="text-light">Your weekly picks:</p>
             {% for pick in weekly_picks %}
-                <article class="card mt-2">
+                <article class="card mt-3 shadow p-1 rounded">
                     <a href="{{ pick.restaurant.url }}" target="_blank" class="m-2"> <h3 class="card-title">{{ pick.restaurant.name.title }}</h3></a>
                     <p class="m-2">{{ pick.user }}</p>
                 </article>
