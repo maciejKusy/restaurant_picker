@@ -10,6 +10,6 @@ class User(AbstractUser):
 class UserRestaurantPick(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     restaurant = models.ForeignKey("restaurants.Restaurant", on_delete=models.CASCADE, related_name='picks')
-    created_at = models.DateTimeField(default=timezone.now)
+    created_at_week_num = models.IntegerField(default=timezone.now().isocalendar().week)
 
 
