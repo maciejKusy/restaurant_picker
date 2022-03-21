@@ -26,8 +26,10 @@ class UserRestaurantPick(models.Model):
         "restaurants.Restaurant", on_delete=models.CASCADE, related_name="picks"
     )
     created_at_week_num = models.IntegerField(
-        MinValueValidator(1),
-        MaxValueValidator(53),
+        validators=[
+            MinValueValidator(1),
+            MaxValueValidator(53)
+        ],
         default=timezone.now().isocalendar().week
     )
 
