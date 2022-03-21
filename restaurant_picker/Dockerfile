@@ -1,5 +1,5 @@
 # pull official base image
-FROM python:3.8.10-alpine
+FROM python:3.9-alpine3.15
 
 # set work directory
 WORKDIR /app
@@ -26,6 +26,6 @@ COPY . .
 RUN python manage.py collectstatic --noinput
 
 # run gunicorn
-CMD gunicorn movie_geeks_django.wsgi:application --bind 0.0.0.0:$PORT
+CMD gunicorn restaurant_picker.wsgi:application --bind 0.0.0.0:$PORT
 
 #CMD python manage.py runserver 0.0.0.0:8765
