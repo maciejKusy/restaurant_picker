@@ -30,7 +30,7 @@ class UserRestaurantPick(models.Model):
             MinValueValidator(1),
             MaxValueValidator(53)
         ],
-        default=timezone.now().isocalendar().week
+        default=timezone.now().isocalendar()[1]
     )
 
     def __str__(self):
